@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Global Styles */
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+        }
+
+        /* Logo Styles */
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            max-width: 150px;
+            width: auto;
+        }
+
+        /* Container with the background image */
+        .container {
+            background: url('https://static.draft5.gg/news/2021/11/26122050/imagem_2021-11-26_122043.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Content div for text and button */
+        .content {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-radius: 8px;
+        }
+
+        .content h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #ff1b7b;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1ABC9C;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo" class="logo">
+
+    <div class="container">
+        <div class="content">
+            <h2>Pra ganhar, é preciso coragem!</h2>
+            <p> Até mesmo para pisar em um chão feito de vidro</p>
+            <button onclick="jogar()">Bora jogar!</button>
+        </div>
+    </div>
+    <footer>Alura - Imersão DEV - 2025</footer>
+
+    <script>
+
+        ganhou = 0
+
+        function jogar() {
+
+            for (let rodada = 1; rodada <= 3; rodada++) {
+                escolhaJogador = prompt(
+                    "Rodada: " +
+                    rodada +
+                    "; Escolha uma passagem de vidro: ( 1 , 2 ou 3 ). Se o vidro ficar inteiro voce passa!!"
+                );
+
+                if (
+                    escolhaJogador === "1" ||
+                    escolhaJogador === "2" ||
+                    escolhaJogador === "3"
+                ) {
+                    pisoQuebrado = Math.floor(Math.random() * 3) + 1;
+
+                    if (escolhaJogador == pisoQuebrado) {
+                        alert("Vidro quebrou! Acabou o jogo para voce");
+                        rodada = 1000;
+                        ganhou = 1
+                    } else {
+                        alert("Passou!! o piso quebrado estava na ponte: " + pisoQuebrado);
+                    }
+
+
+                } else {
+                    alert("Errado!! Digite um número valido!!");
+                }
+            }
+
+            if (ganhou == 0) {
+                alert("Voce venceu!! Parabéns!!");
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

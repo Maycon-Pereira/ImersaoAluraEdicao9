@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url("https://thumbs.dreamstime.com/b/m%C3%A1quina-contra-o-ser-humano-14312853.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Gabarito", sans-serif;
+            margin: 20px;
+        }
+
+        .logo {
+            text-align: end;
+        }
+
+        .logo img {
+            width: 40%;
+        }
+
+        /* Caixa principal do jogo */
+        .conteudo-jogo {
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 5px #ff1b7b;
+            margin: 30px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .conteudo-jogo:hover {
+            background: rgba(0, 0, 0);
+            box-shadow: 0 0 5px #19caca;
+        }
+
+        /* Títulos e textos */
+        h2,
+        p {
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background: #ff1b7b;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #19caca;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo da Imersão Dev" />
+    </div>
+
+    <div class="titulo">
+        <h2>Força ou Queda</h2>
+    </div>
+
+    <main class="conteudo-jogo">
+        <div id="container">
+            <h2>Escolha 3 jogadores para seu time:</h2>
+
+            <p id="informacoesJogador" class="resultado"></p>
+            <p id="informacoesComputador" class="resultado"></p>
+            <button id="resultadoBtn" style="display:none;">Ver Resultado</button>
+            <h1 id="resultadoFinal" class="resultado"></h1>
+    </main>
+
+    <script>
+        //Criar lista com 3 Jogadoes
+        //calcular a força de cada jogador, e depois somar para saber a força do time
+        //calcular a força de cada jogador do time do computador
+        //comparar os dois times para saber quem venceu
+
+        personagem = ["", "", ""]
+        viloes = ["", "", ""]
+
+        forcaPersonagem = 0
+        forcaViloes = 0
+
+        for (let i = 0; i < 3; i++) {
+            escolhaPersonagem = prompt("Digite o nome do seu personagem " + (i + 1))
+            personagem[i] = escolhaPersonagem
+            forcaPersonagem += Math.floor(Math.random() * 10) + 1
+
+            randomJ = Math.floor(Math.random() * 10)
+            viloesPossiveis = [" Coringa", " Darth Vader", " Loki", " Thanos", " Voldemort", " Freddy Krueger", " Magneto", " Venom", " Sauron", " Bane"]
+            viloes[i] = viloesPossiveis[randomJ]
+            forcaViloes += Math.floor(Math.random() * 10) + 1
+
+        }
+        alert("Seus personagens são: " + personagem)
+        alert("Seus adversarios Vilões: " + viloes)
+
+        if (forcaPersonagem > forcaViloes) {
+            alert("Seu time é muito forte, Voce ganhou a disputa de cabo de guerra!! sua força foi de " + forcaPersonagem + " pontos, e teve " + (forcaPersonagem - forcaViloes) + " pontos a mais que seus adversarios!")
+        } else {
+            if (forcaPersonagem < forcaViloes) {
+                alert("Seu time é fraquinho, O computador ganhou a disputa de cabo de guerra com força de: " + forcaViloes + " pontos, e teve " + (forcaViloes - forcaPersonagem) + " pontos a mais que voce!")
+            } else {
+                alert("Os dois times tem a mesma força de " + forcaPersonagem + ", voces empataram!!")
+            }
+        }
+    </script>
+</body>
+
+</html>

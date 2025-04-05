@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+        }
+
+        /* Logo Styles */
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            max-width: 150px;
+            width: auto;
+        }
+
+        /* Container with the background image */
+        .container {
+            background: url('https://miro.medium.com/v2/resize:fit:640/format:webp/1*-doPwuxNJpVQ2QK1ES5fTw.jpeg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Content div for text and button */
+        .content {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-radius: 8px;
+        }
+
+        .content h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #ff1b7b;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1ABC9C;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <body>
+        <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo" class="logo">
+
+        <div class="container">
+            <div class="content">
+                <h2>Pra ganhar é preciso arriscar!</h2>
+                <p> PEDRA, PAPEL ou TESOURA?</p>
+                <button onclick="jogar()">Bora jogar!</button>
+            </div>
+        </div>
+        <footer>Alura - Imersão DEV - 2025</footer>
+    </body>
+
+
+
+
+
+    <script>
+
+        function jogar() {
+
+            do {
+
+                idade = prompt("Quantos anos você tem?");
+                idade = Number(idade);
+
+                if (isNaN(idade) || idade === "") {
+                    alert("A idade deve ser escrita com números");
+                }
+
+            } while (isNaN(idade) || idade === "");
+
+
+            if (idade <= 18) {
+                alert("Você NÃO pode jogar Jokenpo, pois é menor de idade!!!");
+            }
+
+            do {
+
+
+
+                if (idade >= 18) {
+                    escolhaJogador = prompt(
+                        `Digite 1 para Pedra, Digite 2 para Papel ou Digite 3 para Tesoura.
+Se quiser sair, Digite: 0`
+
+                    );
+
+                    if (escolhaJogador >= 4 || escolhaJogador < 0) {
+                        alert("Movimento Invalido, para jogar digite um número jogavel!!")
+
+                    }
+
+                    escolhaComputador = Math.floor(Math.random() * 3) + 1;
+
+                    if (escolhaJogador == escolhaComputador) {
+                        alert("O jogo deu EMPATE!!");
+                    }
+
+                    if (escolhaJogador == 1) {
+                        if (escolhaComputador == 2) {
+                            alert("Computador venceu, ele escolheu Papel")
+                        }
+                        if (escolhaComputador == 3) {
+                            alert("Jogador venceu, computador escolheu Tesoura")
+                        }
+                    }
+
+                    if (escolhaJogador == 2) {
+                        if (escolhaComputador == 1) {
+                            alert("Jogador venceu, computador escolheu Pedra")
+                        }
+                        if (escolhaComputador == 3) {
+                            alert("Computador venceu, ele escolheu Tesoura")
+                        }
+                    }
+
+                    if (escolhaJogador == 3) {
+                        if (escolhaComputador == 2) {
+                            alert("Jogador venceu, computador escolheu Tesoura")
+                        }
+                        if (escolhaComputador == 1) {
+                            alert("Computador venceu, ele escolheu Pedra")
+                        }
+                    }
+                }
+
+
+
+            } while (escolhaJogador != 0);
+
+
+        }
+    </script>
+</body>
+
+</html>

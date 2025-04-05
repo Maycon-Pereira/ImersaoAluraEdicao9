@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Show do Milhão</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&display=swap');
+
+    body {
+      background-color: #001f5b;
+      font-family: 'Gabarito', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      text-align: center;
+      padding: 20px 0;
+      background: linear-gradient(to bottom, #001f5b, #003399);
+    }
+
+    .logo img {
+      width: 300px;
+      max-width: 80%;
+    }
+
+    .allContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .conteudo-jogo {
+      background-color: #000645;
+      border: 4px solid #ffd700;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #ff1b7b;
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 600px;
+    }
+
+    .conteudo-jogo:hover {
+      box-shadow: 0 0 10px #19caca;
+    }
+
+    .questionario {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .conteudo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .progresso {
+      text-align: right;
+      color: white;
+      font-size: 16px;
+    }
+
+    .imgLogo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .imgLogo img {
+      width: 250px;
+    }
+
+    .pergunta {
+      background-color: #ff6600;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      border: 2px solid white;
+    }
+
+    .respostas {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .botao-resposta {
+      background-color: #0044cc;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+    }
+
+    .botao-resposta:hover {
+      background-color: #19caca;
+      font-weight: bold;
+    }
+
+    .fim {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .fim span {
+      color: white;
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .imgSilvio {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    @media (max-width: 900px) {
+      .allContent {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .conteudo-jogo {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo do Show do Milhão" />
+  </div>
+
+  <div class="allContent">
+    <div class="conteudo-jogo">
+      <section class="questionario">
+        <div class="conteudo">
+          <span class="progresso"></span>
+          <div class="imgLogo">
+            <img src="https://segaretro.org/images/9/90/ShowdoMilhao_title.png" alt="Logo do Show do Milhão" />
+          </div>
+          <span class="pergunta"></span>
+          <div class="respostas"></div>
+        </div>
+        <div class="fim">
+          <span></span>
+        </div>
+      </section>
+    </div>
+
+    <div class="conteudo-jogo">
+      <img class="imgSilvio" src="https://fly.metroimg.com/upload/q_85,w_700/https://uploads.metroimg.com/wp-content/uploads/2024/08/02094933/Silvio-Santos-1-1.jpg" alt="Silvio Santos" />
+    </div>
+  </div>
+
+  <script>
+    const perguntas = [
+      {
+        pergunta: "Qual é o maior planeta do Sistema Solar?",
+        respostas: [
+          { opcao: "Saturno", correto: false },
+          { opcao: "Terra", correto: false },
+          { opcao: "Júpiter", correto: true },
+          { opcao: "Marte", correto: false }
+        ]
+      },
+      {
+        pergunta: "Qual invenção revolucionou a forma de se comunicar à distância no século XIX?",
+        respostas: [
+          { opcao: "Rádio", correto: false },
+          { opcao: "Telégrafo", correto: true },
+          { opcao: "Telefone", correto: false },
+          { opcao: "Internet", correto: false }
+        ]
+      },
+      {
+        pergunta: "Quantos ossos um ser humano adulto tem, aproximadamente?",
+        respostas: [
+          { opcao: "300", correto: false },
+          { opcao: "150", correto: false },
+          { opcao: "112", correto: false },
+          { opcao: "206", correto: true }
+        ]
+      },
+      {
+        pergunta: "Qual animal é conhecido por mudar de cor para se camuflar?",
+        respostas: [
+          { opcao: "Polvo", correto: false },
+          { opcao: "Lagartixa", correto: false },
+          { opcao: "Camaleão", correto: true },
+          { opcao: "Cobra", correto: false }
+        ]
+      },
+      {
+        pergunta: "Quem pintou a obra Mona Lisa?",
+        respostas: [
+          { opcao: "Leonardo da Vinci", correto: true },
+          { opcao: "Michelangelo", correto: false },
+          { opcao: "Picasso", correto: false },
+          { opcao: "Van Gogh", correto: false }
+        ]
+      },
+      {
+        pergunta: "Em qual continente está localizado o Egito?",
+        respostas: [
+          { opcao: "Ásia", correto: false },
+          { opcao: "Europa", correto: false },
+          { opcao: "América", correto: false },
+          { opcao: "África", correto: true }
+        ]
+      },
+      {
+        pergunta: "Qual é o nome do gás essencial para a respiração humana?",
+        respostas: [
+          { opcao: "Gás Carbônico", correto: false },
+          { opcao: "Oxigênio", correto: true },
+          { opcao: "Nitrogênio", correto: false },
+          { opcao: "Hidrogênio", correto: false }
+        ]
+      },
+      {
+        pergunta: "Qual é o animal terrestre mais rápido do mundo?",
+        respostas: [
+          { opcao: "Leão", correto: false },
+          { opcao: "Cavalo", correto: false },
+          { opcao: "Guepardo", correto: true },
+          { opcao: "Lobo", correto: false }
+        ]
+      },
+      {
+        pergunta: "Qual é a capital do Japão?",
+        respostas: [
+          { opcao: "Tóquio", correto: true },
+          { opcao: "Pequim", correto: false },
+          { opcao: "Seul", correto: false },
+          { opcao: "Bangkok", correto: false }
+        ]
+      },
+      {
+        pergunta: "Quantos planetas existem no Sistema Solar atualmente (2025)?",
+        respostas: [
+          { opcao: "9", correto: false },
+          { opcao: "7", correto: false },
+          { opcao: "10", correto: false },
+          { opcao: "8", correto: true }
+        ]
+      }
+    ];
+
+    const perguntaEl = document.querySelector(".pergunta");
+    const respostasEl = document.querySelector(".respostas");
+    const progressoEl = document.querySelector(".progresso");
+    const fimEl = document.querySelector(".fim");
+    const fimMsg = document.querySelector(".fim span");
+
+    let perguntaAtual = 0;
+    let pontos = 0;
+
+    function mostrarPergunta() {
+      const perguntaObj = perguntas[perguntaAtual];
+      perguntaEl.textContent = perguntaObj.pergunta;
+      respostasEl.innerHTML = "";
+      progressoEl.textContent = `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+
+      perguntaObj.respostas.forEach((resposta) => {
+        const botao = document.createElement("button");
+        botao.textContent = resposta.opcao;
+        botao.classList.add("botao-resposta");
+        botao.addEventListener("click", () => verificarResposta(resposta.correto));
+        respostasEl.appendChild(botao);
+      });
+    }
+
+    function verificarResposta(correta) {
+      if (correta) pontos++;
+      perguntaAtual++;
+      if (perguntaAtual < perguntas.length) {
+        mostrarPergunta();
+      } else {
+        mostrarFim();
+      }
+    }
+
+    function mostrarFim() {
+      document.querySelector(".conteudo").style.display = "none";
+      fimEl.style.display = "flex";
+      fimMsg.textContent = `Parabéns! Você acertou ${pontos} de ${perguntas.length} perguntas.`;
+    }
+
+    mostrarPergunta();
+  </script>
+</body>
+</html>
